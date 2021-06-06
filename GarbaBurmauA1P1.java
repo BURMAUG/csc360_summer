@@ -5,10 +5,12 @@ package csc360_summer;
  * ASSIGNMENT: 1
  *
  **/
+
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class AssignmentA
+public class GarbaBurmauA1P1
 {
     public static void main(String[] args) throws Exception
     {
