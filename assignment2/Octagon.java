@@ -70,8 +70,16 @@ public class Octagon extends GeometricObject implements Cloneable, Comparable<Oc
     public String toString() {
         return "Octagon{" +
                 " wasCloned = " + wasCloned +
-                ", side= " + side + " Perimeter= " + getPerimeter() +
-                " Area= " + getArea() +
+                ", side = " + side + ", Perimeter = " + getPerimeter() +
+                ", Area = " + getArea() +
                 '}';
     }
 }
+
+/**
+ *
+ * Octagon1: Octagon{ wasCloned = false, side = 5.0, Perimeter = 40.0, Area = 120.71067811865474}
+ * Octagon2: Octagon{ wasCloned = true, side = 5.0, Perimeter = 40.0, Area = 120.71067811865474}
+ * oct1.compareTo(oct2): 0
+ *
+ ***/
