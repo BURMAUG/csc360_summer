@@ -1,5 +1,12 @@
 package csc360_summer.assignment2;
 
+/**
+ *
+ * @AUTHOR: BURMAU GARBA
+ * @INSTRUCTOR: RASIB KHAN
+ *
+ * **/
+
 public class Octagon extends GeometricObject implements Cloneable, Comparable<Octagon>{
     // was cloned or not cloned
     private boolean wasCloned  = false;//Checker to know if cloned
@@ -23,17 +30,17 @@ public class Octagon extends GeometricObject implements Cloneable, Comparable<Oc
         this.side = side;
     }
 
-    public double setArea()
-    {
-        try {
-        if(area <= 0)
-            throw new ArithmeticException("Zero can't be allowed");
-        }catch(ArithmeticException ex)
-        {
-            ex.getMessage();
-        }
-        return  area;
-    }
+//    public double setArea()
+//    {
+//        try {
+//        if(area <= 0)
+//            throw new ArithmeticException("Zero can't be allowed");
+//        }catch(ArithmeticException ex)
+//        {
+//            ex.getMessage();
+//        }
+//        return  area;
+//    }
 
     @Override
     public double getArea() {
