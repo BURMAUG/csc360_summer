@@ -1,12 +1,19 @@
 package csc360_summer.assignment2;
 
+/**
+ *
+ * @author Burmau Garba
+ * @instructor Rasib Kahn
+ *
+ * **/
+
+
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Laptop implements Comparable<Laptop>{
     private static  final  Random random = new Random();
     /** Constant **/
-    private final double CPU_MAX = 3.0, RAM_MAX = 32.0,
+    private static final double CPU_MAX = 3.0, RAM_MAX = 32.0,
                    HDD_MAX = 2048, SCREEN_MAX = 17.0,
                    WEIGHT_MAX = 6.0, BATTERY_MAX = 9.0,
                    PRICE_MAX = 2000;
@@ -42,50 +49,6 @@ public class Laptop implements Comparable<Laptop>{
 
     }
 
-
-    public double getCpu() {
-        return cpu;
-    }
-    public double setCpu() {
-        return random.nextInt((int) (CPU_MAX - 1 + 1)) + 1;
-    }
-    public double getRam() {
-        return ram;
-    }
-    public void setRam(double ram) {
-        this.ram = ram;
-    }
-    public double getHdd() {
-        return hdd;
-    }
-    public void setHdd(double hdd) {
-        this.hdd = hdd;
-    }
-    public double getScreen_size() {
-        return screen_size;
-    }
-    public void setScreen_size(double screen_size) {
-        this.screen_size = screen_size;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-    public double getBattery_life() {
-        return battery_life;
-    }
-    public void setBattery_life(double battery_life) {
-        this.battery_life = battery_life;
-    }
-    public double getPrice() {
-        return price;
-    }
-    public void setPrice(double price) {
-        this.price = price;
-    }
     public double getScore() {
         return  score= ((2 * cpu)/ CPU_MAX ) +
                 ( (1 * hdd) / HDD_MAX ) + graphics +
@@ -107,39 +70,39 @@ public class Laptop implements Comparable<Laptop>{
 //        return laptops;
 //    }
 
-    public int make_graphics(){
+    public static int make_graphics(){
         return random.nextInt( 1-0 + 1 );
     }
 
-    public double make_price()
+    public static double make_price()
     {
         return random.nextInt((int) (PRICE_MAX - 200 + 1)) + 200 ;
     }
 
-    public double make_battery_life()
+    public static double make_battery_life()
     {
         return random.nextInt((int) BATTERY_MAX + 1);
     }
 
-    public double makeWeight()
+    public static double makeWeight()
     {
         return random.nextInt((int) (WEIGHT_MAX -1 +  1)) + 1;
     }
 
-    public double makeScreenSize()
+    public static double makeScreenSize()
     {
         return random.nextInt((int) (SCREEN_MAX -1 +  1)) + 1;
     }
 
-    public double makeCPU() {
+    public static double makeCPU() {
         return random.nextInt((int) (CPU_MAX - 1 + 1)) + 1;
     }
 
-    public double make_ram(){
+    public static double make_ram(){
         return random.nextInt((int)RAM_MAX+1);
     }
 
-    public double make_hdd()
+    public static double make_hdd()
     {
         return random.nextInt((int)HDD_MAX + 1 );
     }
@@ -159,10 +122,21 @@ public class Laptop implements Comparable<Laptop>{
                 '}';
     }
 
-    public Laptop randomLaptopCreator()
+    public static Laptop[] randomLaptopCreator()
     {
-        Laptop laptop =  new Laptop(setCpu(), make_ram(), make_hdd(), makeScreenSize(), makeWeight(), make_battery_life(), make_price(), make_graphics());
-        return laptop;
+
+        Laptop[] laptops = new Laptop[5];
+        laptops[0] = new Laptop(makeCPU(), make_ram(), make_hdd(), makeScreenSize(), makeWeight(), make_battery_life(), make_price(), make_graphics());
+        laptops[1] = new Laptop(makeCPU(), make_ram(), make_hdd(), makeScreenSize(), makeWeight(), make_battery_life(), make_price(), make_graphics());
+        laptops[2] = new Laptop(makeCPU(), make_ram(), make_hdd(), makeScreenSize(), makeWeight(), make_battery_life(), make_price(), make_graphics());
+        laptops[3] = new Laptop(makeCPU(), make_ram(), make_hdd(), makeScreenSize(), makeWeight(), make_battery_life(), make_price(), make_graphics());
+        laptops[4] = new Laptop(makeCPU(), make_ram(), make_hdd(), makeScreenSize(), makeWeight(), make_battery_life(), make_price(), make_graphics());
+        for (int i = 0; i < laptops.length; i++) {
+            for (int j = i+1; j < laptops.length; j++)
+                laptops[i].compareTo(laptops[j]);
+            Arrays.sort(laptops); //sorting according to the laptop score
+        }
+        return laptops;
     }
 
     @Override
@@ -175,30 +149,4 @@ public class Laptop implements Comparable<Laptop>{
             return 0;
     }
 
-    public static void main(String[] args) {
-        //make a Laptop
-        Laptop[] laptop = new Laptop[5];
-        //Create an arraylist of laptops that contains 5 randomly generated laptops
-        for (int i = 0; i < laptop.length; i++)
-            laptop[i] = new Laptop().randomLaptopCreator();
-
-        Arrays.stream(laptop).forEach(i -> System.out.println(i));
-
-
-        Laptop current = null;
-        outter_loop: for (int i = 0; i < laptop.length; i++) {
-            current = laptop[0]; // the first laptop
-            int identifier = 0; //for cmpareTo()
-            for (int j = i + 1; j < laptop.length; j++) {
-                identifier = laptop[j].compareTo(current);
-                if (identifier == 1)
-                    current = laptop[i];
-            }
-        }
-        outside:
-        {
-
-        }
-
-   }
 }
