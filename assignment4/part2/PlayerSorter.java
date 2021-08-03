@@ -1,9 +1,21 @@
 package csc360_summer.assignment4.part2;
 
 
+/**
+ *
+ * @Author: Burmau Garba
+ * Instructor: Rasib Khan
+ * Assignment: 4
+ *
+ * **/
+
+
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.ListIterator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
@@ -53,5 +65,22 @@ public class PlayerSorter {
         System.out.println();
         System.out.println();
         removeAndPrintQueues(playerScorePQ);
+
+
+
+
+
+
+
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 0; i < 5; i++){
+            list.add(i);
+        }
+        ListIterator iterator = list.listIterator();
+        for(int i = 0; i<3; i++){
+            iterator.next();
+        }
+        iterator.set(45);
+        System.out.println(list);
     }
 }

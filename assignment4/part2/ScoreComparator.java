@@ -1,7 +1,13 @@
 package csc360_summer.assignment4.part2;
 
 
-import java.util.ArrayList;
+/**
+ *
+ * @Author: Burmau Garba
+ * Instructor: Rasib Khan
+ * Assignment: 4
+ *
+ * **/
 
 public class ScoreComparator implements java.util.Comparator<Player> {
     @Override

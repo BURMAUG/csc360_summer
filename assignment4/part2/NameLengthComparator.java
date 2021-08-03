@@ -1,6 +1,12 @@
 package csc360_summer.assignment4.part2;
 
-import java.util.PriorityQueue;
+/**
+ *
+ * @Author: Burmau Garba
+ * Instructor: Rasib Khan
+ * Assignment: 4
+ *
+ * **/
 
 public class NameLengthComparator implements java.util.Comparator<Player>{
     @Override
